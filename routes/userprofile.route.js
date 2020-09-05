@@ -15,7 +15,7 @@ router.get('/users/:someUserId', (req, res) => {
       .then(foundUser => {
         // console.log('Did I find a user?', founUser);
         res.render('user-details', foundUser);
-      })
+      }) 
       .catch(err =>
         console.log(`Err while getting the specific user from the  DB: ${err}`)
       );

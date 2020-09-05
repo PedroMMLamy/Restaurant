@@ -13,17 +13,19 @@ const userSchema = new Schema(
             {
             type: String,
          //   required: true
-      },
+        },
         lastName: 
            {
            type: String,
           // required: true
-     },
+        },
         encryptedPassword: 
          {
          type: String,
          required: true
-    },
+        },
+        role: { type: String, enum: ['admin', 'restricted'], required: true
+        },
         email: {
             type: String,
             required: [true, 'Email is required.'],
@@ -35,12 +37,10 @@ const userSchema = new Schema(
         },
         cellPhone: {
             type: Number
-        }
     },
-        {
-            timestamps: true
-        }
-);
+    created_at: {
+        type: Date, default:Date.now }
+    });
 
 
 

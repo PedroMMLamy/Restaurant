@@ -1,35 +1,54 @@
 require('dotenv').config();
-const createError = require('http-errors');
+require('express-async-errors')
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const indexRouter = require('./routes/index.routes');
-const hbs = require('hbs');
 const mongoose = require('mongoose');
-//ADICIONEI const booking = require ('./routes/booking.routes'))
-const buildAdminRouter = require('./routes/admin.router');
-const options = require('./routes/admin.options');
-const { default: AdminBro } = require('admin-bro');
+const logger = require('morgan');
+const bodyParser = require('body-parser')
+const AdminBro = require('admin-bro')
+const AdminBroExpress = require('@admin-bro/express')
+
+const usersRouter = require('./routes/users.routes');
+const indexRouter = require('./routes/index.routes');
+
+// We have to tell AdminBro that we will manage mongoose resources with it
+
+AdminBro.registerAdapter(require('admin-bro-mongoose'));
+
+// express server definition
+const app = express();
+
+// Resource definitions
+const User = require('./models/User.model')
+const Table = require('./models/table')
+
+
+
+// settings adminbro
+const adminBro = new AdminBro({
+  resources: [User, Table],
+  rootPath: '/admin',
+  branding: {
+    companyName: 'Restaurant TreBien',
+  },
+})
+
+// Build and use a router wich will handle all AdminBro routes
+
+const router = AdminBroExpress.buildRouter(adminBro)
+app.use(adminBro.options.rootPath, router)
 
 // database configuration
 require('./configs/db.config')
-
-const app = express();
-const port = 3000;
-
 require('./configs/session.config')(app);
 
-  const admin = new AdminBro(options);
-  const router = buildAdminRouter(admin);
-  
-  app.use(admin.options.rootPath, router);
-
-// view engine setup
+// view engine setup 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // Middleware Setup
+app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -37,20 +56,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
-// Routes middleware
-app.use('/', indexRouter);
 
+
+// Routes middleware
+
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/', require('./routes/signup.routes'));
 app.use('/', require('./routes/login.routes'));
 app.use('/', require('./routes/auth.routes'));
-app.use('/', require('./routes/index.routes'));
-app.use('/', require('./routes/users.routes'));
+app.use("/availability", require("./routes/booking-tables/availabilityRoute"));
+app.use("/reserve", require("./routes/booking-tables/reservationRoute"));
 app.use('/', require('./routes/table.routes'));
 app.use('/', require('./routes/about.routes'));
-// ADICIONEI app.use('/', require('./routes/booking.routes'));
-
-
-
+ 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

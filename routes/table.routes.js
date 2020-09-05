@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-const Table = require('../models/Table.model');
+const User = require('../models/User.model');
+const Table = require('../models/table');
 
 //GET route to display all the tables
 
