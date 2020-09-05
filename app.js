@@ -7,6 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index.routes');
 const hbs = require('hbs');
 const mongoose = require('mongoose');
+//ADICIONEI const booking = require ('./routes/booking.routes'))
 const buildAdminRouter = require('./routes/admin.router');
 const options = require('./routes/admin.options');
 const { default: AdminBro } = require('admin-bro');
@@ -46,7 +47,7 @@ app.use('/', require('./routes/index.routes'));
 app.use('/', require('./routes/users.routes'));
 app.use('/', require('./routes/table.routes'));
 app.use('/', require('./routes/about.routes'));
-
+// ADICIONEI app.use('/', require('./routes/booking.routes'));
 
 
 
