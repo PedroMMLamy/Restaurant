@@ -1,0 +1,34 @@
+<div id="user-create">
+        <div class="user-create-header">
+        <ul type="none">
+        <li><a href="/homepage">Home</a></li>
+        <li><a href="/users">Users List</a></li>
+      </ul>
+        </div>
+<div class="box-content-newusers">
+<h2>Create a New User</h2>
+
+<form action="/users/create" method="post">
+
+  <label for="username-input">Username:</label>
+  <input type="text" name="username" id="username-input" />
+
+  <label for="firstName-input">First Name:</label>
+  <input type="text" name="firstName" id="firstName-input" />
+
+  <label for="lastName-input">Last Name:</label>
+  <input type="text" name="lastName" id="lastName-input"/>
+
+  <label for="passwordHash-input">password:</label>
+  <input type="password" name="passwordHash" id="password-input"/>
+
+  <label for="email-input">email:</label>
+  <input type="email" name="email" id="email-input"/>
+
+  <label for="cellPhone-input">Cellphone:</label>
+  <input type="number" name="cellPhone" id="cellPhone-input"/>
+
+  <button type="submit">Create new User</button>
+
+</form>
+</div>

@@ -1,0 +1,31 @@
+<h2> Table Booking </h2>
+
+<form method="post" action="/booking">
+<p>Table Number: {{number}}</p>
+    <label for="TableNumber"> Table Number:</label>
+    <input id="TableNumber" type="number" name="TableNumber">
+<p>Member: {{number}}</p>
+    <label for="Member"> Member:</label>
+    <input id="Member" type="number" name="Member">
+<p>Reservation Hour: {{number}}</p>
+    <label for="hour"> Hour:</label>
+    <input id="hour" type="hour" name="hour">
+<p>Amount: {{number}}</p>
+
+    <label for="pendingApproval"> Booked:</label>
+    <input id="pendingApproval" type="pendingApproval" value="hidden" name="booked" hidden>
+
+    <button type="submit"> Make your Reservation</button>
+
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    <span class="align-middle">
+        <div class="form-group">
+        </div>
+        {{#if errorMessage}}
+        <p class="Please fill the form">{{errorMessage}}</p>
+        {{/if}}
+</form> 
+
+

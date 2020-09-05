@@ -1,0 +1,27 @@
+<div class="userprofile-color">
+<h2>Edit the user: {{username}}</h2>
+
+<form action="/users/{{_id}}/edit" method="post">
+
+  <label for="username-input">Username:</label>
+  <input type="text" name="username" id="username-input" value="{{username}}"/>
+
+  <label for="firstName-input">First Name:</label>
+  <input type="text" name="firstName" id="firstName-input" value="{{firstName}}"/>
+
+  <label for="lastName-input">Last Name:</label>
+  <input type="text" name="lastName" id="lastName-input" value="{{lastName}}"/>
+
+  <label for="passwordHash-input">password:</label>
+  <input type="password" name="passwordHash" id="password-input" value="{{passwordHash}}"/>
+
+  <label for="email-input">email:</label>
+  <input type="email" name="email" id="email-input" value="{{email}}"/>
+
+  <label for="cellPhone-input">Cellphone:</label>
+  <input type="number" name="cellPhone" id="cellPhone-input" value="{{cellPhone}}"/>
+
+  <button type="submit">Save changes</button>
+
+</form>
+</div>

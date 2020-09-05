@@ -1,0 +1,24 @@
+<div id="table-list">
+        <div class="table-header">
+        <ul type="none">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tables/create">Create New Table</a></li>
+      </ul>
+        </div>
+        
+        {{#each tables}}
+        <div class="each-table">
+             <br><br><br>
+                    <h3><p>Table Name: {{name}}</p></h3>
+                    <p>Size: {{size}}</p>
+                    <p>Status: {{status}}</p>
+                    <a href="/tables/{{_id}}/edit">Edit</a>
+                    <form action="/tables/{{_id}}/delete" method="POST">
+          <!---  <button>Delete</button>  -->
+    </form>
+         
+  </div>
+  
+  {{/each}}  
+  
+ </div>         

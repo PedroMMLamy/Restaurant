@@ -1,0 +1,18 @@
+<h2>Edit the table: {{name}}</h2>
+
+<form action="/books/{{_id}}/edit" method="post">
+
+  <label for="name-input">Name:</label>
+  <input type="text" name="Name" id="name-input" value="{{name}}" />
+
+  <label for="size-input">Size:</label>
+  <input type="number" name="size" id="size-input" value="{{size}}" />
+
+  <label for="status-input">Status:</label>
+  <input type="text" name="status" id="status-input" value="{{status}}" />
+
+  
+
+  <button type="submit">Save changes</button>
+
+</form>

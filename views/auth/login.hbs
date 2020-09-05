@@ -1,0 +1,31 @@
+{{!-- views/auth/login.hbs --}}
+
+<div class="login-style">
+      <div class="forms-container">
+        <div class="signin">
+          <form action="/login" method="POST" class="sign-in-form">
+            <h2 class="title">Sign in</h2>
+            <div class="input-field"><i class="fas fa-user"></i>
+               <input type="text"  id="input-email" name="email" placeholder="email" />
+            </div>
+            <div class="input-field"><i class="fas fa-lock"></i>
+               <input type="password"  id="input-password"  name="password" placeholder="**********"/>
+            </div>
+            <input type="submit" value="Login" class="btn solid" /><br><br>
+            <li><a href="/signup">Sign up</a></li>
+            
+              
+            <p class="social-text">Or Sign in with social platforms</p>
+            <div class="social-media">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+                {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+                {{/if}}
+
+          </form>    
+      </div>

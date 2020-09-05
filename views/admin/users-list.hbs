@@ -1,0 +1,25 @@
+<div id="table-list">
+        <div class="table-header">
+        <ul type="none">
+        <li><a href="/homepage">Home</a></li>
+        <li><a href="/users/create">Create New User</a></li>
+      </ul>
+        </div>
+        
+        {{#each User}}
+        <div class="each-User">
+             <br><br><br>
+                    <h3><p>User Name: {{username}}</p></h3>
+                    <p>email: {{email}}</p>
+                    <p>Admin: {{isAdmin}}</p>
+                    <p>Cellphone: {{CellPhone}}</p>
+                    <a href="/users/{{_id}}/edit">Edit</a>
+                    <form action="/users/{{_id}}/delete" method="POST">
+          <!---  <button>Delete</button>  -->
+    </form>
+         
+  </div>
+  
+  {{/each}}  
+  
+ </div>         

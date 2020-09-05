@@ -1,0 +1,61 @@
+
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+<div id="Homepage">
+  <video autoplay muted loop id="myVideo">
+    <source src="restaurant.mp4" type="video/mp4">
+  </video>
+    <div>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>
+        {{#if userInSession}}
+          <h6>Welcome {{ userInSession.username }}
+              <a href="/">
+        <i class="fa fa-sign-out"></i>
+        <span>Logout</span>
+      </a>
+            
+          {{else}}
+          <p>Still no logged in user, sorry!</p></h6>
+          {{/if}}
+          </header>
+      <a href="#" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-link"></i>
+        <span>Shortcuts</span>
+      </a>
+      <a href="#">
+        <i class="far fa-envelope"></i>
+        <span>Book table</span>
+      </a>
+      <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-sliders-h"></i>
+        <span>Services</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-stream"></i>
+        <span>Overview</span>
+      </a>
+      </div>
+    </div>
+</div>
