@@ -65,13 +65,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', require('./routes/signup.routes'));
 app.use('/', require('./routes/login.routes'));
-app.use('/', require('./routes/auth.routes'));
-app.use("/availability", require("./routes/booking-tables/availabilityRoute"));
-app.use("/reserve", require("./routes/booking-tables/reservationRoute"));
+app.use('/', require("./routes/availabilityRoute"));
+app.use('/', require("./routes/reservationRoute"));
 app.use('/', require('./routes/table.routes'));
 app.use('/', require('./routes/about.routes'));
  
-
+  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

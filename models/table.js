@@ -8,7 +8,7 @@ const tableSchema = new Schema(
         IsAvailable: Boolean,
         bookedby:{ 
             type: Schema.Types.ObjectId,
-            rel: "User"
+            ref: "User"
         },
         created_at: {
             type: Date, default:Date.now }

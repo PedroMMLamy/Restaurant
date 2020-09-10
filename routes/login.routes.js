@@ -9,7 +9,7 @@ const saltRounds = 10;
 ////////////////////////////////////////////////////////////////////////
 
 // .get() route ==> to display the login form to users
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login', (req, res) => res.render('profile'));
 
 // .post() login route ==> to process form data
 router.post('/login', (req, res, next) => {

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User.model')
-const Table = require('../models/Table.model');
+const Table = require('../models/table');
 const { findByIdAndRemove } = require('../models/User.model');
 
 require('../configs/db.config');
@@ -11,7 +11,8 @@ const users = [
         email: 'bruno.lucas14@hotmail.com',
         encryptedPassword: '11111',
         firstName: 'Andre',
-        lastName: 'Pedro'
+        lastName: 'Pedro',
+        role: 'restricted'
     },
 ];
 
