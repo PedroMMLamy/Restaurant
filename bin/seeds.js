@@ -12,7 +12,9 @@ const users = [
         encryptedPassword: '11111',
         firstName: 'Andre',
         lastName: 'Pedro',
-        role: 'restricted'
+        role: 'restricted',
+        cellPhone: '923892383'
+
     },
 ];
 
@@ -27,18 +29,21 @@ User.create(users)
 
 const tables = [
         {
-          tableNumber: 1,
-          size: 4,
+        TableNumber: 1,
+        capacity: 4,
+        IsAvailable: true
          
         },
         {
-            tableNumber: 2,
-            size: 6,
+        TableNumber: 2,
+        capacity: 6,
+        IsAvailable: true
             
         },
         {
-            tableNumber: 3,
-            size: 4,
+        TableNumber: 3,
+        capacity: 4,
+        IsAvailable: true
             
         }
     ];

@@ -21,13 +21,14 @@ const app = express();
 
 // Resource definitions
 const User = require('./models/User.model')
-const Table = require('./models/table')
+const Table = require('./models/Table.model')
+const Reservation = require('./models/Reservation.model')
 
 
 
 // settings adminbro
 const adminBro = new AdminBro({
-  resources: [User, Table],
+  resources: [User, Table, Reservation],
   rootPath: '/admin',
   branding: {
     companyName: 'Restaurant TreBien',
@@ -65,7 +66,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', require('./routes/signup.routes'));
 app.use('/', require('./routes/login.routes'));
-app.use('/', require("./routes/availabilityRoute"));
 app.use('/', require("./routes/reservationRoute"));
 app.use('/', require('./routes/table.routes'));
 app.use('/', require('./routes/about.routes'));

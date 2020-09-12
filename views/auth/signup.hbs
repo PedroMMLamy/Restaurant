@@ -11,13 +11,26 @@
             <div class="input-field"><i class="fas fa-envelope"></i>
               <input type="email" id="input-email" name="email" placeholder="Your email" />
             </div>
+            <div class="input-field"><i class="fas fa-signature"></i>
+              <input type="text"  id="input-firstName"  name="firstName"  placeholder="Your First Name" />
+            </div>
+            <div class="input-field"><i class="fas fa-signature"></i>
+              <input type="text"  id="input-lastName"  name="lastName"  placeholder="Your Last Name" />
+            </div>
+            <div class="input-field"><i class="fas fa-phone"></i>
+              <input type="number"  id="input-cellPhone"  name="cellPhone"  placeholder="Your cellPhone" />
+            </div>
+
+
+
             <div class="input-field"><i class="fas fa-lock"></i>
                <input type="password" name="password" id="input-password" placeholder="********" />
             </div>
-            <div class="input-field"><i class="fas fa-phone"></i>
-              <input type="number"  id="input-cellPhone"  name="cellphoneregister"  placeholder="Your cellPhone" />
-            </div>
+           
+
             <input type="submit" class="btn" value="Sign up" />
+            <a href="/" class="btn" style="font-size: 12px; padding-top: 15px; padding-left:55px">Login</a>
+
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -29,5 +42,6 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
           </form>
+          
   </div>
        

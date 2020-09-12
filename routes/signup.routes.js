@@ -14,10 +14,10 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 // .post() route ==> to process form data
 router.post('/signup', (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, firstName, lastName, cellPhone , password } = req.body;
 
-  if (!username || !email || !password) {
-    res.render('auth/signup', { errorMessage: 'All fields are mandatory. Please provide your username, email and password.' });
+  if (!username || !email || !firstName || !lastName || !cellPhone ||!password) {
+    res.render('auth/signup', { errorMessage: 'All fields are mandatory. Please provide your information.' });
     return
   }
 
@@ -38,6 +38,9 @@ router.post('/signup', (req, res, next) => {
       return User.create({
         // username: username
         username,
+        firstName,
+        lastName,
+        cellPhone,
         email,
         // passwordHash => this is the key from the User model
         //     ^

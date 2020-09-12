@@ -2,8 +2,8 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 
-const Reservation = require("../models/reservation.model");
-const Table = require("../models/table");
+const Reservation = require("../models/Reservation.model");
+const Table = require("../models/Table.model");
 
 const Islogged =((req, res, next) => {
   if(req.session.currentUser) {
@@ -14,45 +14,55 @@ const Islogged =((req, res, next) => {
   }
 });
 
+// ****************************************************************************************
+// GET route to display all the tables
+// ****************************************************************************************
 
-router.get('/reservation', Islogged , (req ,res ) => {
-  res.render('reservation')
-});
-
-router.post("/reservation/create", (req, res, next) =>  {
-  Reservation.find({ $and: [ {date: req.body.date},{table: tableId} ]
-  }).then( days => {
-    if(!days.length) {
-      Reservation.create({date: date, table: tableId, user: userId})
-      let day = days[0];
-        day.tables.forEach(table => {
-          if (day == req.body.table) {
-            Table.find = new Reservation({
-              username: req.session.currentUser.username,
-              cellPhone: req.session.currentUser.cellPhone,
-              email: req.session.currentUser.email,
-              tableNumber:req.session.currentUser.tableNumber,
-              member:req.session.currentUser.member,
-              reservationHour:req.session.currentUser.reservationHour,
-              amount: req.session.currentUser.amount,
-            });
-            table.isAvailable = false;
-            day.save(err => {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log("Reserved");
-                res.status(200).send("Added Reservation");
-              }
-            });
-          }
-        });
-      } else {
-      console.log("Day not found");
-      return res.redirect('/');
-    }
+router.get('/list-of-tables', Islogged , (req ,res ) => {
+  Table.find({ IsAvailable: { $ne: false } })
+    .then(allTheTablesFromDB => {
+      console.log(allTheTablesFromDB);
+      res.render('list-of-tables', { tables: allTheTablesFromDB });
     })
+    .catch(err =>
+      console.log(`Err while getting the tables from the  DB: ${err}`)
+    );
 });
+
+
+router.get('/reservation/:id', Islogged , (req ,res ) => {
+  const { id } = req.params
+  res.render('reservation', 
+  { 
+    tableId : id,
+    firstName: req.session.currentUser.firstName,
+    lastName: req.session.currentUser.lastName,
+    cellPhone: req.session.currentUser.cellPhone,
+    username: req.session.currentUser.username,
+  })
+});
+
+
+router.post("/reservation/:id", (req, res) =>  {
+  const { datebooking }  = req.body;
+  const { id } = req.params;
+      Reservation.create(
+        {
+        date: datebooking, 
+        table: id, 
+        user: req.session.currentUser._id
+       })
+    .then(() => {
+      Table.findByIdAndUpdate(id,{IsAvailable: false})
+      .then(updatedTable => {
+       return  res.redirect('/homepage')
+      })
+      .catch(err => console.log(err))
+    })
+    .catch(error => `Error while creating a new booking: ${error}`);
+});
+
 
 
 module.exports = router;
+

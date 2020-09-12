@@ -7,7 +7,7 @@
     padding: 30px 30px;
     border: 6px solid #fff;
   }
-  h1{  padding-top: 31px;}
+  h1{  padding-top: 88px;}
   h1.header-w3ls {
     text-align: center;
     font-weight: 600;
@@ -52,7 +52,7 @@
   .form-left-w3l  input[type="date"]
   {
   outline: none;
-  width: 100%;
+ 
   box-sizing: border-box;
   background:transparent;
   color: #fff;
@@ -83,7 +83,7 @@
     height: inherit;
   outline:none;
   }
-  input#datepicker,input#datepicker1 {width:64%;}
+  
   input#timepicker,input#timepicker1{width:34%;}
   input#datepicker2{width:100%;}
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -163,12 +163,12 @@
   }
   @media(max-width:1440px){
   .appointment-w3 {
-    width: 28%;
+    width: 36%;
   }
   }
   @media(max-width:1280px){
   .appointment-w3 {
-    width: 30%;
+    width: 39%;
   }
   }
   @media(max-width:1080px){
@@ -307,7 +307,7 @@
     margin: 13px auto 30px;
   }
   .appointment-w3 {
-    width: 65%;
+    width: 101%;
   }
   }
   @media(max-width:440px){
@@ -320,7 +320,7 @@
   }
   @media(max-width:414px){
   .appointment-w3 {
-    width: 74%;
+    width: 101%;
   }
   }
   @media(max-width:384px){

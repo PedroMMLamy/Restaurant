@@ -1,0 +1,58 @@
+<div id="about-style">
+    <div class="about-header">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Trésbien Restaurant</label>
+      <ul type="none">
+        <li><a class="active" href="/homepage">Home</a></li>
+        <li><a class="Menu-open" href="#">Menu</a></li>
+      </ul>
+    </div>
+      <div class="list-of-tables">
+        <h1>Available Tables</h1>
+          <hr><br>
+{{#each tables}}
+<br>
+  <div class="table-status">
+    <h2><p>TableNumber:{{this.TableNumber}} <br><br>
+      <a href="/reservation/{{this._id}}" style="color:green;">Book that table</a>
+    <br><br>
+    <h2><p>Number of people:{{this.capacity}}</p></h2>
+    <br><br>
+    
+    </form>
+  </div> 
+  <br>
+  <hr>
+{{/each}}
+</div>
+<div id="modal-promote" class="modal-container">
+		<div class="modal">
+			<button class="close">x</button>
+			<h1 style="margin-left:50%"<i>Menu</h1></i>
+      <br>
+      <br>
+      <img src="menus.jpeg" style="margin-left:20%" alt="img">
+
+    </div>
+</div>
+
+<script> 
+    function startModal(modalID) {
+				const modal = document.getElementById(modalID);
+				if(modal) {
+					modal.classList.add('show');
+          
+					modal.addEventListener('click', (e) => {
+						if(e.target.id == modalID || e.target.className == 'close') {
+							modal.classList.remove('show');
+							
+						}
+					});
+				}
+		}
+		const buttonBooktable = document.querySelector('.Menu-open');
+	  buttonBooktable.addEventListener('click', () => startModal('modal-promote')); 
+</script>

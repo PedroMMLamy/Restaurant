@@ -2,109 +2,102 @@
 	<!-- Meta tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="application/x-javascript">
-		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-	</script>
-   <link rel="stylesheet" href="/stylesheets/formstyle.css" />
-  <link rel="stylesheet" href="/stylesheets/jquery-ui.css" />
-  <link rel="stylesheet" href="/stylesheets/wickedpicker.css" />
+	<link rel="stylesheet" href="/stylesheets/formstyle.css" />
 
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
 </head>
 
 <div id="about-style">
-    <div class="about-header">
-      <input type="checkbox" id="check">
-      <label for="check" class="checkbtn">
-        <i class="fas fa-bars"></i>
-      </label>
-      <label class="logo">Trébien Restaurant</label>
-      <ul type="none">
-        <li><a class="active" href="/homepage">Home</a></li>
-        <li><a href="#">Menu</a></li>
-      </ul>
-    </div>
-      <div>
-        <h1 class="header-w3ls">
-		          Table Booking Form</h1>
-	    <div class="appointment-w3">
-		    <form action="/reservation/create" method="post">
-			    <div class="personal">
-			
-				<div class="main">
-					<div class="form-left-w3l">
+	<div class="about-header">
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">Trébien Restaurant</label>
+		<ul type="none">
+			<li><a class="active" href="/homepage">Home</a></li>
+			<li><a href="#">Menu</a></li>
+		</ul>
+	</div>
+	<div>
+		<h1 class="header-w3ls">
+			Table Booking Form</h1>
+		<div class="appointment-w3">
 
-						<input type="hidden" class="top-up" name="name" placeholder="Name" required="" >
-					</div>
-					<div class="form-left-w3l">
+			<form action="/reservation/{{tableId}}" method="post">
+				<div class="personal">
 
-						<input type="email" name="email" placeholder="Email" required="">
-					</div>
-					<div class="form-right-w3ls ">
+					<div class="main">
+						<br>
+						<div class="form-left-w3l">
+							<h2>
+								<p style="color:#996515">Username : {{username}}</p>
+							</h2>
+						</div>
+						<br>
+						<hr>
+						<br>
+						<div class="form-left-w3l">
 
-						<input class="buttom" type="text" name="phone number" placeholder="Phone Number" required="">
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="information">
-				
-				
-				<div class="main">
-
-					
-					<div class="form-left-w3l">
-						<input id="datepicker" name="text" type="date" placeholder="Booking Date &" required="">
-						<input type="time" id="timepicker" name="Time" class="timepicker form-control hasWickedpicker" placeholder="Time" required=""
-						 onkeypress="return false;">
-						<div class="clear"></div>
-					</div>
-				</div>
-				
-				<div class="main">
-
-					<div class="form-left-w3l">
-						<select class="form-control">
-					<option value="">Number of Adults</option>
-						<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>and more</option>
-					</select>
+							<h2>
+								<p style="color:#996515">Name : <br> {{firstName}} {{lastName}}</p>
+							</h2>
+						</div>
+						<br>
+						<hr>
+						<br>
+						<div class="form-left-w3l">
+							<h2>
+								<p style="color:#996515">Cellphone : {{cellPhone}}</p>
+							</h2>
+						</div>
+						<br>
+						<hr>
+						<br>
+						<div class="form-right-w3ls ">
+							<div class="clearfix"></div>
+						</div>
 					</div>
 				</div>
-				
-			</div>
-			
-			
-			<div class="btnn">
-				<input type="submit" value="Reserve a Table">
-			</div>
-		</form>
-      </div>
-     
-  
-</div>
-<script type='text/javascript' src='public\javascripts\jquery-2.2.3.min.js'></script>
-<script src="js/jquery-ui.js"></script>
-<script>
-		$(function () {
-			$("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
-		});
+				<div class="information">
+
+
+					<div class="main">
+
+
+						<div class="form-left-w3l">
+
+							<input id="datepicker" name="datebooking" type="date" placeholder="Booking Date"
+								required="">
+							<div class="clear"></div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+				<div class="btnn">
+					<button  style="font-size:15px;"type="submit" onclick="bootstrapAlert()" >Reserve a table 
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+
+	<script>
+		function bootstrapAlert() {
+			alert("Success: Your Table has been Booked" )
+		}
 	</script>
-<script>
-	<!-- //Calendar -->
-	<!-- Time -->
-	<script type="text/javascript" src="public\javascripts\wickedpicker.js"></script>
-	<script type="text/javascript">
-		$('.timepicker,.timepicker1').wickedpicker({ twentyFour: false });
-	</script>
-
-</script>
-
-

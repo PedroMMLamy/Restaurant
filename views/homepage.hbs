@@ -1,61 +1,154 @@
 
- <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  </head>
-<div id="Homepage">
-  <video autoplay muted loop id="myVideo">
-    <source src="restaurant.mp4" type="video/mp4">
-  </video>
-    <div>
-    <input type="checkbox" id="check">
-    <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <div class="sidebar">
-      <header>
-        {{#if userInSession}}
-          <h6>Welcome {{ userInSession.username }}
-              <a href="/">
-        <i class="fa fa-sign-out"></i>
-        <span>Logout</span>
-      </a>
-            
-          {{else}}
-          <p>Still no logged in user, sorry!</p></h6>
+  <!-- nav-bar  -->
+  
+  <section id="nav-bar" class="container">
+    <header class="nav-bar">
+      <div class="brand">
+        <img src="logovf.jpeg" alt="img">
+        </div>
+      
+      <div class="nav-list">
+        <div class="hamburger">
+          <div class="bar"></div>
+        </div>
+        <ul>
+          <li><a href="/homepage">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="/list-of-tables">Book Table</a></li>
+          <li><a href="/">Logout</a></li>
+          </form>
+        </ul>
+      </div>
+    </header>
+  </section>
+  <!-- End nav-bar  -->
+
+  <!-- Hero Section  -->
+  <section id="hero" class="hero container">
+        <video autoplay muted loop id="myVideo">
+        <source src="restaurant.mp4" type="video/mp4">
+       </video>
+    <div class="hero-info">
+      <h1 class="hero-info-heading">Welcome to <br>{{#if userInSession}}
+          {{ userInSession.firstName }}
+            {{else}}
+          <p>Still no logged in user, sorry!</p>
           {{/if}}
-          </header>
-      <a href="/reservation" class="active">
-        <i class="fas fa-qrcode"></i>
-        <span>Reservations</span>
-      </a>
-      <a href="#">
-        <i class="fas fa-link"></i>
-        <span>Events</span>
-      </a>
-      <a href="#">
-        <i class="far fa-envelope"></i>
-        <span>Our Restaurant</span>
-      </a>
-      <a href="#">
-         <i class="fas fa-calendar"></i>
-        <span>Team</span>
-      </a>
-      <a href="#">
-        <i class="far fa-question-circle"></i>
-        <span>Info</span>
-      </a>
-      <a href="#">
-        <i class="fas fa-sliders-h"></i>
-        <span>Services</span>
-      </a>
-      <a href="/about">
-        <i class="fas fa-stream"></i>
-        <span>About</span>
-      </a>
+          </h1>
+          <br>
+          <br>
+      <p class="hero-info-subheading">'Gastronomy is an art and the dishes that come from it are its works of art'</p>
+      <br><br>
+      <button class="btn-table" onclick="window.location.href='/list-of-tables'">Book Table</button>
+    </div>
+    </div>
+     
+  </section>
+  <!-- End Hero Section  -->
+
+  <!-- Welcome section  -->
+  <section id="about" class="about container">
+    <div class="about-info">
+      <h1 class="about-info-heading">Welcome to Restaurant TrésBien</h1><br>
+      <p class="about-info-desc">The character and philosophy of our type of cuisine, which follows the ancestral technique of using different types of firewood, fire, charcoal and the scented trace of the smoke, inherently results in a limitation on the number of diners that we can accommodate without sacrificing our essence. For this reason, we can only serve a maximum of 30 people per service.
+
+The average price of our menu is € 320 (VAT included, drinks not included).<br><br>
+
+We accept all credit cards.</p>
+      
+    </div>
+    <div class="about-img">
+      <div class="about-img-wrapper">
+        <img src="logo.jpeg" alt="">
       </div>
     </div>
-</div>
+  </section>
+  <!-- End About section  -->
+
+  <!-- Contact & Location Section  -->
+  <section id="services" class="services container">
+    
+    <div class="services-info">
+      <div class="service">
+        <div class="service-card">
+          <div class="service-front">
+            <i class="fa fa-envelope-o"></i>
+            <h1 class="service-front-heading">Contacts</h1>
+          </div>
+          <div class="service-back">
+            
+            <h2><p class="service-back-desc"><strong>Phone number: +34 976 456 041</strong><br>
+                                          <strong>Contact e-mail: info@tresbien.com</strong><br>
+                                          </p>
+              </h2>                            
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <div class="service-front">
+            <i class="fa fa-map-marker"></i>
+            <h1 class="service-front-heading">Location</h1>
+          </div>
+          <div class="service-back">
+            <p class="service-back-desc"><strong>Postal address: 17 Station Road London W79 5GK</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Service Section  -->
+
+  <!-- Footer section  -->
+  <footer id="footer" class="footer container">
+    <div class="footer-contact">
+      
+    </div>
+    <div class="footer-social-follow">
+      <h1 class="footer-social-follow-heading">Follow the Restaurant</h1>
+      <div class="footer-social-icon">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div id="modal-promote" class="modal-container">
+		<div class="modal">
+			<button class="close">x</button>
+			<h2 style="color:white"><i>List of reservations</h2></i><br><br>
+        {{#each reservation}}
+      <div class="list-of-reservations">
+         
+         <p>Table:</p>
+          <p>Date: </p>
+
+    
+
+         
+      {{/each}}
+      </div>
+    </div>>
+
+  </footer>
+
+  <!-- End Footer section  -->
+
+<script> 
+    function startModal(modalID) {
+				const modal = document.getElementById(modalID);
+				if(modal) {
+					modal.classList.add('show');
+          
+					modal.addEventListener('click', (e) => {
+						if(e.target.id == modalID || e.target.className == 'close') {
+							modal.classList.remove('show');
+							
+						}
+					});
+				}
+		}
+		const buttonBooktable = document.querySelector('.modal-open');
+	  buttonBooktable.addEventListener('click', () => startModal('modal-promote')); 
+</script>
+

@@ -39,10 +39,12 @@ const userSchema = new Schema(
             trim: true
         },
         cellPhone: {
-            type: Number
+            type: Number,
+            required: true
     },
     created_at: {
-        type: Date, default:Date.now }
+        type: Date, 
+        default:Date.now }
     });
 
 
