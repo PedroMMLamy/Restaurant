@@ -194,6 +194,33 @@ Confirmation button
 - Search table
 
 
+API Endpoints (backend routes)
+HTTP Method	URL	Request Body	Success status	Error Status	Description
+GET	/auth/session	Saved session	200	404	Check if user is logged in and return profile page
+POST	/auth/signup	{name, email, password}	201	404	Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session
+POST	/auth/login	{username, password}	200	401	Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session
+POST	/auth/logout	(empty)	204	400	Logs out the user
+GET	Provider/profile/list			400	Show series elements
+GET	Provider/profile/:id				Show specific element
+PUT	Provider/profile/:id		200	400	Edit specific element
+DELETE	Provider/profile/:id		201	400	delete element
+GET	User/profile/list			400	Show series elements
+GET	User/profile/:id				Show specific element
+PUT	User/profile/:id		200	400	Edit specific element
+DELETE	User/profile/:id		201	400	delete element
+POST	/requestedservice/create		204	400	Ask for service, and create requested service.
+GET	/requestservice		204	400	Show ask service page
+GET	/requestedservice/:id		204	400	Show specific requestedservice
+GET	`/requestedservice/list		204	400	Show series requestedservice
+POST	/acceptedservice/create		204	400	Accept for service, and create requested service.
+GET	/acceptedservice/:id		204	400	Show specific acceptedservice
+GET	`/acceptedservice/list		204	400	Show series acceptedservice
+POST	/review/create		204	400	create a review
+GET	/review/:id		204	400	Show specific review
+GET	/review/list		204	400	Show series review
+DELETE	/review/:id		201	400	delete review
+
+
 ## Links
 [Trello Link](https://trello.com/invite/b/S4pIlmNs/cc1cd6e72021e0bed308e2be32fa2e53/ironhack-restaurant)
 
